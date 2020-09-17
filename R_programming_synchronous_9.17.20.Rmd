@@ -30,6 +30,11 @@ covid.aug.numreported <- sum(covid.aug$count)
 3. What zip code had the greatest number of positive tests by August 11?
 ```{r, eval = TRUE}
 
+posresults <- covid.aug$covid_status == "POS"
+posresults_zipcounts <- cbind(zip_code = covid.aug$zip_code[posresults], count = covid.aug$count[posresults])
+
+sickestzip <- posresults_zipcounts[which.max(posresults_zipcounts[,"count"]),]
+
 ```
 
 4. Create a function `most.neg` that returns the zip code with the greatest number of negative tests along with that number as a data frame. Use the function to get this output for July 7 and Aug 11.
