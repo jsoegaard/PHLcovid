@@ -14,14 +14,22 @@ output:
 1. Load data frames called `covid.jul` and `covid.aug` corresponding to covid test results reported by the Philadelphia Department of Public Health on July 7 and August 11, 2020 that are in files `phl_covid_tests_7.7.20.txt` and `phl_covid_tests_8.11.20.txt`, respectively.
 
 ```{r, eval = TRUE}
+
+covid.jul <- read.table(file = "phl_covid_tests_7.7.20.txt", header = TRUE, sep = "\t", na.strings = NA)
+covid.aug <- read.table(file = "phl_covid_tests_8.11.20.txt", header = TRUE, sep = "\t", na.strings = NA)
+
 ```
 
 2. How many COVID-19 test results had been reported in Philadelphia by August 11? 
 ```{r, eval = TRUE}
+
+covid.aug.numreported <- sum(covid.aug$count)
+
 ```
 
 3. What zip code had the greatest number of positive tests by August 11?
 ```{r, eval = TRUE}
+
 ```
 
 4. Create a function `most.neg` that returns the zip code with the greatest number of negative tests along with that number as a data frame. Use the function to get this output for July 7 and Aug 11.
